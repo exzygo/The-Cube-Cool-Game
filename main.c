@@ -13,7 +13,7 @@ int main(void) {
     Rectangle player = { 100, 300, 40, 40 };
     Rectangle floor = { 0, 400, screenWidth, 50 };
 
-    Sound fxJump = LoadSound("assets/jump.wav");
+    Sound fxJump = LoadSound("assets/sounds/jump.wav");
 
     float velocityY = 0.0f;
     int isOnGround = 1;
