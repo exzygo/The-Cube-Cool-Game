@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "headers/eyes_player.h"
+#include "headers/cursor.h"
 
 int main(void) {
     const int screenWidth = 800;
@@ -16,6 +17,10 @@ int main(void) {
     Rectangle floor = { 0, 400, screenWidth, 50 };
 
     Sound fxJump = LoadSound("assets/sounds/jump.wav");
+    
+    Cursor cursor;
+    Vector2 hotspot = {8, 8}; 
+    LoadCursor(&cursor, "assets/cursors/c1.png", hotspot);
 
     float velocityY = 0.0f;
     int isOnGround = 1;
@@ -55,11 +60,15 @@ int main(void) {
             DrawRectangleRec(floor, GRAY);
             DrawRectangleRec(player, WHITE);
             DrawEyes(player, GetMousePosition());
+
+            UpdateCursor(&cursor);
             
         EndDrawing();
     }
 
     UnloadSound(fxJump);
+    UnloadCursor(&cursor);
+
     CloseAudioDevice();
     CloseWindow();
 
