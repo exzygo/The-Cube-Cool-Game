@@ -19,6 +19,8 @@ const char* aarch_detec() {
     return "x86_64";
 #elif defined(__i386__) || defined(_M_IX86)
     return "x86";
+#elif defined(__aarch64__)
+    return "ARM64";
 #else
     return "Unkown";
 #endif

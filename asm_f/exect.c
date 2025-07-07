@@ -15,6 +15,8 @@ int main() {
         system("nasm -f elf64 x86-64/linux/linput_x86-64.asm -o asm_obj_f/linux_input_x86_64.o");
     } else if (strcmp(os, "Linux") == 0 && strcmp(arch, "x86") == 0) {
         system("nasm -f elf32 x86/linux/linput_x86.asm -o asm_obj_f/linux_input_x86.o");
+    } else if (strcmp(os, "Linux") == 0 && strcmp(arch, "ARM64")) {
+	    system("aarch64-linux-gnu-as arm64/linux/linput_arm64.s -o asm_obj_f/linux_input_arm64.o");
     } else if (strcmp(os, "Windows") == 0 && strcmp(arch, "x86_64") == 0) {
         system("nasm -f win64 x86-64/windows/winput_x86-64.asm -o asm_obj_f/win_input_x86_64.obj");
     } else if (strcmp(os, "Windows") == 0 && strcmp(arch, "x86") == 0) {

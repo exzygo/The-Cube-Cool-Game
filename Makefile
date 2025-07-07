@@ -8,6 +8,14 @@ asm_files:
 	cd asm_f && ./f
 	rm -rf asm_f/f
 
+asm_arm64:
+	rm -rf asm_f/asm_obj_f/*.o
+	rm -rf asm_f/asm_obj_f/*.obj
+	cd asm_f/
+	gcc detec.c exect.c -o f 
+	./f
+	rm -rf asm_f/f
+
 run:
 	gcc main.c asm_f/asm_obj_f/*.o -o game -Iheaders -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 	./game
