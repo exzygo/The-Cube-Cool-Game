@@ -3,6 +3,9 @@
 #include "headers/eyes_player.h"
 #include "headers/cursor.h"
 
+#define CURSOR_X 32
+#define CURSOR_Y 32
+
 int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
@@ -19,7 +22,7 @@ int main(void) {
     Sound fxJump = LoadSound("assets/sounds/jump.wav");
     
     Cursor cursor;
-    Vector2 hotspot = {8, 8}; 
+    Vector2 hotspot = {CURSOR_X / 2, CURSOR_Y / 2}; 
     LoadCursor(&cursor, "assets/cursors/c1.png", hotspot);
 
     float velocityY = 0.0f;
