@@ -9,7 +9,7 @@ asm_files:
 	rm -rf asm_f/f
 
 run:
-	gcc main.c -o game -Iheaders -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+	gcc main.c asm_f/asm_obj_f/*.o -o game -Iheaders -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 	./game
 	rm -rf game
 

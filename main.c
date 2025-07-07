@@ -8,6 +8,8 @@
 #define P_X 25
 #define P_Y 25
 
+extern int input_key(unsigned char *keys);
+
 int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
@@ -31,6 +33,15 @@ int main(void) {
     int isOnGround = 1;
 
     while (!WindowShouldClose()) {
+        unsigned char keys[5];
+        keys[0] = IsKeyDown(KEY_A);
+        keys[1] = IsKeyDown(KEY_D);
+        keys[2] = IsKeyDown(KEY_SPACE);
+        keys[3] = IsKeyDown(KEY_LEFT);
+        keys[4] = IsKeyDown(KEY_RIGHT);
+
+        int key = input_key(keys);
+
         velocityY += gravity;
         player.y += velocityY;
 
@@ -51,9 +62,9 @@ int main(void) {
             velocityY = 0;
         }
 
-        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) player.x += 4.0f;
-        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) player.x -= 4.0f;
-        if (IsKeyPressed(KEY_SPACE) && isOnGround == 0) {
+        if (key == KEY_RIGHT || key == KEY_D) player.x += 4.0f;
+        if (key == KEY_LEFT || key == KEY_A) player.x -= 4.0f;
+        if (IsKeyDown(KEY_SPACE) && isOnGround == 0) {
             velocityY = jumpForce;
             PlaySound(fxJump);
         }
