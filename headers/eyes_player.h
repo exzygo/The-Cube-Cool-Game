@@ -5,14 +5,14 @@
 #include "raymath.h"
 
 static inline void DrawEyes(Rectangle player, Vector2 mousePos) {
-    float eyeWidth = 12.0f;
-    float eyeHeight = 10.0f;
-    float pupilWidth = 5.0f;
-    float pupilHeight = 5.0f;
+    float eyeWidth = 10.0f;
+    float eyeHeight = 8.0f;
+    float pupilWidth = 4.0f;
+    float pupilHeight = 4.0f;
     float maxOffset = 3.0f;
 
-    Vector2 leftEyeCenter = { player.x + 10, player.y + 12 };
-    Vector2 rightEyeCenter = { player.x + 30, player.y + 12 };
+    Vector2 leftEyeCenter = { player.x + 5, player.y + 10 };
+    Vector2 rightEyeCenter = { player.x + 20, player.y + 10 };
 
     Vector2 leftDir = Vector2Subtract(mousePos, leftEyeCenter);
     Vector2 rightDir = Vector2Subtract(mousePos, rightEyeCenter);

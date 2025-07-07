@@ -5,6 +5,8 @@
 
 #define CURSOR_X 32
 #define CURSOR_Y 32
+#define P_X 25
+#define P_Y 25
 
 int main(void) {
     const int screenWidth = 800;
@@ -16,7 +18,7 @@ int main(void) {
     InitAudioDevice();
     SetTargetFPS(60);
 
-    Rectangle player = { 100, 300, 40, 40 };
+    Rectangle player = { 100, 300, P_X, P_Y };
     Rectangle floor = { 0, 400, screenWidth, 50 };
 
     Sound fxJump = LoadSound("assets/sounds/jump.wav");
@@ -32,7 +34,7 @@ int main(void) {
         velocityY += gravity;
         player.y += velocityY;
 
-        if (GetScreenWidth() != 800 || GetScreenHeight() != 450) SetWindowSize(800, 450);
+        if (GetScreenWidth() != screenWidth || GetScreenHeight() != screenHeight) SetWindowSize(screenWidth, screenHeight);
 
         if (player.y + player.height >= floor.y) {
             player.y = floor.y - player.height;
