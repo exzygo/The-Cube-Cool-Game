@@ -3,6 +3,7 @@
 #include "headers/eyes_player.h"
 #include "headers/cursor.h"
 
+#define SPEED 4.0f
 #define CURSOR_X 32
 #define CURSOR_Y 32
 #define P_X 25
@@ -62,8 +63,8 @@ int main(void) {
             velocityY = 0;
         }
 
-        if (key == KEY_RIGHT || key == KEY_D) player.x += 4.0f;
-        if (key == KEY_LEFT || key == KEY_A) player.x -= 4.0f;
+        if (key == KEY_RIGHT || key == KEY_D) player.x += SPEED;
+        if (key == KEY_LEFT || key == KEY_A) player.x -= SPEED;
         if (IsKeyDown(KEY_SPACE) && isOnGround == 0) {
             velocityY = jumpForce;
             PlaySound(fxJump);
@@ -78,7 +79,6 @@ int main(void) {
             DrawEyes(player, GetMousePosition());
 
             UpdateCursor(&cursor);
-            
         EndDrawing();
     }
 
