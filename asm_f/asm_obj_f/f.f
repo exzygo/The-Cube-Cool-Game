@@ -1,3 +1,3 @@
-      PROGRAM HELLO
+      PROGRAM F_FILE
       PRINT *, 'f'
       END
