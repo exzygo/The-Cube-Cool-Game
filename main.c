@@ -1,7 +1,6 @@
 #include "raylib.h"
-#include "raymath.h"
-#include "headers/eyes_player.h"
-#include "headers/cursor.h"
+#include "eyes_player.h"
+#include "cursor.h"
 
 #define SPEED 4.0f
 #define CURSOR_X 32
@@ -9,6 +8,7 @@
 #define P_X 25
 #define P_Y 25
 
+// ASM extern input key parameter for hierarchy
 extern int input_key(unsigned char *keys);
 
 int main(void) {
@@ -25,9 +25,9 @@ int main(void) {
     Rectangle floor = { 0, 400, screen_width, 50 };
 
     Sound fx_jump = LoadSound("assets/sounds/jump.wav");
-    
+
     Cursor cursor;
-    Vector2 hotspot = {CURSOR_X / 2, CURSOR_Y / 2}; 
+    Vector2 hotspot = { (float)CURSOR_X / 2, (float)CURSOR_Y / 2 }; 
     LoadCursor(&cursor, "assets/cursors/c1.png", hotspot);
 
     float velocity_y = 0.0f;
@@ -46,7 +46,8 @@ int main(void) {
         velocity_y += gravity;
         player.y += velocity_y;
 
-        if (GetScreenWidth() != screen_width || GetScreenHeight() != screen_height) SetWindowSize(screen_width, screen_height);
+        if (GetScreenWidth() != screen_width || GetScreenHeight() != screen_height) 
+            SetWindowSize(screen_width, screen_height);
 
         if (player.y + player.height >= floor.y) {
             player.y = floor.y - player.height;
