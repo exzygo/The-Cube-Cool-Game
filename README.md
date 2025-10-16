@@ -9,4 +9,4 @@ The prerequisites to the game run normally is:
   - Make 4.4.1
   - Raylib 5.5
 
-[ The MIT License (MIT), Copyright (c) 2025, mvghasty. ]
+[ The MIT License (MIT), Copyright (c) 2025, exzygo. ]
